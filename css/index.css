@@ -138,20 +138,20 @@
             font-size: 1.25rem;
         }
 
-        /* --- DESAYUNOS SECTION STYLES --- */
-        .desayunos {
+        /* --- breakfasts SECTION STYLES --- */
+        .breakfasts {
             padding: 50px 20px;
             text-align: center;
             background-color: #e0f2f7; /* A light, refreshing blue-ish background */
             color: #1a237e; /* Dark blue for general text */
         }
 
-        .desayunos h2 {
+        .breakfasts h2 {
             color: #0d47a1; /* Strong blue for the main section title */
             margin-bottom: 40px;
         }
 
-        .desayunos .breakfast-time {
+        .breakfasts .breakfast-time {
             color: #ef6c00; /* Orange for time indication */
             font-size: 1.5rem;
             font-weight: 600;
@@ -159,7 +159,7 @@
             display: block; /* Ensures it takes its own line */
         }
 
-        .desayunos-content {
+        .breakfasts-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
@@ -238,10 +238,10 @@
                 font-size: 1rem;
                 padding: 12px 25px;
             }
-            .desayunos h2 {
+            .breakfasts h2 {
                 font-size: 2.5rem;
             }
-            .desayunos .breakfast-time {
+            .breakfasts .breakfast-time {
                 font-size: 1.3rem;
             }
             .breakfast-category h3 {
@@ -275,13 +275,13 @@
                 font-size: 0.85rem;
                 padding: 10px 20px;
             }
-            .desayunos h2 {
+            .breakfasts h2 {
                 font-size: 2rem;
             }
-            .desayunos .breakfast-time {
+            .breakfasts .breakfast-time {
                 font-size: 1.2rem;
             }
-            .desayunos-content {
+            .breakfasts-content {
                 grid-template-columns: 1fr;
             }
             .breakfast-category h3 {
@@ -306,10 +306,10 @@
                 font-size: 0.8rem;
                 padding: 8px 15px;
             }
-            .desayunos h2 {
+            .breakfasts h2 {
                 font-size: 1.8rem;
             }
-            .desayunos .breakfast-time {
+            .breakfasts .breakfast-time {
                 font-size: 1rem;
             }
             .breakfast-category h3 {

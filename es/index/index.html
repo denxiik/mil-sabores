@@ -24,7 +24,7 @@
         <div class="home-content">
             <h1>¡Bienvenido a Heladería Mil Sabores!</h1>
             <h2 class="slogan">"Donde cada cucharada es una aventura de sabor."</h2>
-            <p class="paragraph-normal">Sumérgete en un mundo de delicias refrescantes con nuestros helados artesanales, cócteles vibrantes y desayunos que te llenarán de energía. En Mil Sabores, cada momento es una celebración del buen gusto.</p>
+            <p class="paragraph-normal">Sumérgete en un mundo de delicias refrescantes con nuestros helados artesanales, cócteles vibrantes y breakfasts que te llenarán de energía. En Mil Sabores, cada momento es una celebración del buen gusto.</p>
             <p class="paragraph-normal">¿Listo para explorar un universo de **sabores únicos**?</p>
             <a href="#cocktails" class="cta-button">Descubre Nuestros Cócteles</a>
         </div>
@@ -135,11 +135,11 @@
         </div>
     </section>
 
-    <section id="desayunos" class="desayunos">
-        <h2>Nuestros Desayunos</h2>
+    <section id="breakfasts" class="breakfasts">
+        <h2>Nuestros desayunos</h2>
         <span class="paragraph-normal breakfast-time">Disponibles de 9:00 a 12:00</span>
 
-        <div class="desayunos-content">
+        <div class="breakfasts-content">
             <div class="breakfast-category">
                 <h3>Dulces</h3>
                 <div class="breakfast-item">
@@ -202,6 +202,8 @@
 
 </body>
 
+<footer id="footer-placeholder"></footer>
+
 <a href="../../en/index/index.html" class="language-button">
     <img class="language-flag" src="../../img/en.png" alt="English Flag">
 </a>
@@ -211,8 +213,9 @@
     document.addEventListener('DOMContentLoaded', function () {
         // Load all HTML fragments first
         const headerPromise = loadHTML('../../es/header/index.html', 'header-placeholder');
+        const footerPromise = loadHTML('../../es/footer/index.html', 'footer-placeholder');
 
-        Promise.all([headerPromise])
+        Promise.all([headerPromise, footerPromise])
             .then(() => {
                 const menuToggle = document.querySelector('.menu-toggle');
                 const navBar = document.querySelector('.nav-bar'); // Get the nav-bar element

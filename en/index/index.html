@@ -136,11 +136,11 @@
         </div>
     </section>
 
-    <section id="desayunos" class="desayunos">
+    <section id="breakfasts" class="breakfasts">
         <h2>Our Breakfasts</h2>
         <span class="paragraph-normal breakfast-time">Available from 9:00 AM to 12:00 PM</span>
 
-        <div class="desayunos-content">
+        <div class="breakfasts-content">
             <div class="breakfast-category">
                 <h3>Sweet</h3>
                 <div class="breakfast-item">
@@ -203,6 +203,8 @@
 
 </body>
 
+<footer id="footer-placeholder"></footer>
+
 <a href="../../es/index/index.html" class="language-button">
     <img class="language-flag" src="../../img/es.png" alt="Spanish Flag">
 </a>
@@ -212,8 +214,9 @@
     document.addEventListener('DOMContentLoaded', function () {
         // Load all HTML fragments first
         const headerPromise = loadHTML('../../en/header/index.html', 'header-placeholder');
+        const footerPromise = loadHTML('../../en/footer/index.html', 'footer-placeholder');
 
-        Promise.all([headerPromise])
+        Promise.all([headerPromise, footerPromise])
             .then(() => {
                 const menuToggle = document.querySelector('.menu-toggle');
                 const navBar = document.querySelector('.nav-bar'); // Get the nav-bar element
