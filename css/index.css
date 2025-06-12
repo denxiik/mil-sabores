@@ -1,64 +1,326 @@
 @import url('styles.css');
-
-/* Estilos temporales para la sección home */
+/* --- HOME SECTION STYLES --- */
         .home {
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Para que ocupe toda la altura de la ventana */
-            background-color: #fce4ec; /* Un color de fondo suave, como de helado */
+            min-height: 100vh;
+            background: linear-gradient(rgba(252, 228, 236, 0.8), rgba(252, 228, 236, 0.8)), url('https://via.placeholder.com/1920x1080/FFC0CB/FFFFFF?text=Mil+Sabores+Heladeria') no-repeat center center/cover;
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
             box-sizing: border-box;
             flex-direction: column;
-            gap: 20px;
+            color: #4a148c;
+        }
+
+        .home-content {
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         }
 
         .home h1 {
-            font-family: 'Georgia', serif; /* Una fuente elegante */
-            font-size: 3.5em;
-            color: #d81b60; /* Un rosa vibrante */
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            color: #d81b60;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+            font-weight: 700;
+        }
+
+        .home h2.slogan {
+            font-size: 2.625rem;
+            color: #880e4f;
+            font-style: italic;
+            margin-bottom: 25px;
+            line-height: 1.2;
         }
 
         .home p {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.5em;
-            color: #4a148c; /* Un morado oscuro */
-            max-width: 800px;
-            line-height: 1.6;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #4a148c;
         }
 
-        .home .slogan {
-            font-style: italic;
-            font-weight: bold;
-            color: #880e4f; /* Un tono más oscuro de rosa */
+        .home .cta-button {
+            background-color: #d81b60;
+            color: var(--white);
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+            margin-top: 20px;
         }
 
-        .home .coming-soon {
-            margin-top: 30px;
-            font-size: 1.2em;
-            color: #ad1457;
-            font-weight: bold;
+        .home .cta-button:hover {
+            background-color: #ad1457;
+            transform: translateY(-3px);
+        }
+
+        /* --- COCKTAILS SECTION STYLES --- */
+        .cocktails {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #fff3e0;
+        }
+
+        .cocktails h2 {
+            color: #c2185b;
+            margin-bottom: 40px;
+        }
+
+        .cocktails-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cocktail-item {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            text-align: left;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .cocktail-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .cocktail-item h3 {
+            color: #880e4f;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .cocktail-item p {
+            color: #4a148c;
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+
+        .cocktail-item .price {
+            font-weight: 700;
+            color: #d81b60;
+            margin-top: 15px;
+            font-size: 1.25rem;
+        }
+
+        .cocktail-description {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .cocktail-description .description-text {
+            flex-grow: 1;
+            text-align: left;
+            margin-right: 10px;
+            color: #4a148c;
+            font-weight: 400;
+        }
+
+        .cocktail-description .description-price {
+            white-space: nowrap;
+            color: #d81b60;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        /* --- DESAYUNOS SECTION STYLES --- */
+        .desayunos {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #e0f2f7; /* A light, refreshing blue-ish background */
+            color: #1a237e; /* Dark blue for general text */
+        }
+
+        .desayunos h2 {
+            color: #0d47a1; /* Strong blue for the main section title */
+            margin-bottom: 40px;
+        }
+
+        .desayunos .breakfast-time {
+            color: #ef6c00; /* Orange for time indication */
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            display: block; /* Ensures it takes its own line */
+        }
+
+        .desayunos-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .breakfast-category {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: left;
+        }
+
+        .breakfast-category h3 {
+            color: #1565c0; /* Medium blue for category titles */
+            margin-bottom: 20px;
+            font-weight: 700; /* Bold */
+            text-align: center;
+        }
+
+        .breakfast-category h4 {
+            color: #283593; /* Darker blue for sub-categories */
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-weight: 600; /* Semibold */
+        }
+
+        .breakfast-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dotted #bbdefb; /* Light blue dotted line */
+        }
+
+        .breakfast-item:last-child {
+            border-bottom: none; /* No border for the last item */
+        }
+
+        .breakfast-item .item-name {
+            color: #4a148c; /* Purple for item names, keeping brand color */
+            font-weight: 600; /* Bold for names */
+            flex-grow: 1;
+            margin-right: 15px;
+        }
+
+        .breakfast-item .item-ingredients {
+            color: #6a1b9a; /* Lighter purple for ingredients */
+            font-weight: 400; /* Normal */
+            flex-grow: 1;
+        }
+
+        .breakfast-item .item-price {
+            white-space: nowrap;
+            color: #d81b60; /* Vibrant pink for prices */
+            font-weight: 700;
+            font-size: 1.125rem; /* Paragraph normal size */
+        }
+
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 1080px) {
+            .home h1 {
+                font-size: 2.8rem;
+            }
+            .home h2.slogan {
+                font-size: 1.8rem;
+            }
+            .home p {
+                font-size: 1rem;
+            }
+            .home .cta-button {
+                font-size: 1rem;
+                padding: 12px 25px;
+            }
+            .desayunos h2 {
+                font-size: 2.5rem;
+            }
+            .desayunos .breakfast-time {
+                font-size: 1.3rem;
+            }
+            .breakfast-category h3 {
+                font-size: 1.8rem;
+            }
+            .breakfast-category h4 {
+                font-size: 1.5rem;
+            }
+            .breakfast-item .item-name,
+            .breakfast-item .item-ingredients,
+            .breakfast-item .item-price {
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 768px) {
-            .home h1 {
-                font-size: 2.5em;
+            .home-content {
+                padding: 30px 20px;
+                margin: 0 15px;
             }
-
+            .home h1 {
+                font-size: 2.2rem;
+            }
+            .home h2.slogan {
+                font-size: 1.5rem;
+            }
             .home p {
-                font-size: 1.2em;
+                font-size: 0.95rem;
+            }
+            .home .cta-button {
+                font-size: 0.85rem;
+                padding: 10px 20px;
+            }
+            .desayunos h2 {
+                font-size: 2rem;
+            }
+            .desayunos .breakfast-time {
+                font-size: 1.2rem;
+            }
+            .desayunos-content {
+                grid-template-columns: 1fr;
+            }
+            .breakfast-category h3 {
+                font-size: 1.6rem;
+            }
+            .breakfast-category h4 {
+                font-size: 1.3rem;
             }
         }
 
         @media (max-width: 480px) {
             .home h1 {
-                font-size: 2em;
+                font-size: 1.8rem;
             }
-
+            .home h2.slogan {
+                font-size: 1.3rem;
+            }
             .home p {
-                font-size: 1em;
+                font-size: 0.9rem;
+            }
+            .home .cta-button {
+                font-size: 0.8rem;
+                padding: 8px 15px;
+            }
+            .desayunos h2 {
+                font-size: 1.8rem;
+            }
+            .desayunos .breakfast-time {
+                font-size: 1rem;
+            }
+            .breakfast-category h3 {
+                font-size: 1.4rem;
+            }
+            .breakfast-category h4 {
+                font-size: 1.1rem;
+            }
+            .breakfast-item .item-name,
+            .breakfast-item .item-ingredients,
+            .breakfast-item .item-price {
+                font-size: 0.9rem;
             }
         }
