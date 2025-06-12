@@ -9,17 +9,18 @@
 
     <link rel="stylesheet" href="../../css/index.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../../css/header.css" /> <script src="../../script/script.js"></script>
 
-    <script src="../../script/script.js"></script>
-
-    <link rel="alternate" hreflang="en" href="https://denxiik.github.io/mil-sabores/en/index/" />
-    <link rel="alternate" hreflang="es" href="https://denxiik.github.io/mil-sabores/es/index/" />
+    <link rel="alternate" hreflang="en" href="https://x/en/" />
+    <link rel="alternate" hreflang="es" href="https://x/es/" />
+    <style>
+    </style>
 </head>
 
 <header id="header-placeholder"></header>
 
 <body>
-    <section class="home">
+    <section id="home" class="home">
         <div class="home-content">
             <h1>¡Bienvenido a Heladería Mil Sabores!</h1>
             <h2 class="slogan">"Donde cada cucharada es una aventura de sabor."</h2>
@@ -29,7 +30,7 @@
         </div>
     </section>
 
-    <section class="cocktails" id="cocktails">
+    <section id="cocktails" class="cocktails">
         <h2>Nuestros Cócteles Exclusivos</h2>
         <div class="cocktails-grid">
             <div class="cocktail-item">
@@ -134,7 +135,7 @@
         </div>
     </section>
 
-    <section class="desayunos">
+    <section id="desayunos" class="desayunos">
         <h2>Nuestros Desayunos</h2>
         <span class="paragraph-normal breakfast-time">Disponibles de 9:00 a 12:00</span>
 
@@ -202,7 +203,7 @@
 </body>
 
 <a href="../../en/index/index.html" class="language-button">
-    <img class="language-flag" src="/../../img/en.png" alt="English Flag">
+    <img class="language-flag" src="../../img/en.png" alt="English Flag">
 </a>
 
 <script>
@@ -214,14 +215,19 @@
         Promise.all([headerPromise])
             .then(() => {
                 const menuToggle = document.querySelector('.menu-toggle');
-                const navBar = document.querySelector('.nav-bar');
-                const dropdowns = document.querySelectorAll('.nav-bar .dropdown');
+                const navBar = document.querySelector('.nav-bar'); // Get the nav-bar element
+                const navLinks = document.querySelectorAll('#main-nav-list a'); // Get all new nav links
+                const sections = document.querySelectorAll('section[id]'); // Get all sections with an ID
+                const navList = document.getElementById('main-nav-list'); // Get the ul element
 
+                // The menuToggle and navBar.classList.toggle('active') logic
+                // is no longer needed for visibility as the nav is always visible.
+                // You can remove this block if you wish, or keep it as it won't affect visibility.
                 if (menuToggle && navBar) {
                     menuToggle.addEventListener('click', function () {
-                        navBar.classList.toggle('active');
-
-                        // Close all dropdowns when the main menu is toggled
+                        navBar.classList.toggle('active'); // This might still be used for dropdown logic
+                        // Close all dropdowns when the main menu is toggled (if any are present)
+                        const dropdowns = document.querySelectorAll('.nav-bar .dropdown');
                         dropdowns.forEach(dropdown => {
                             dropdown.classList.remove('active');
                         });
@@ -230,10 +236,69 @@
                     console.warn("Menu toggle o nav bar no encontrados. Revisa tu estructura HTML.");
                 }
 
+                // Smooth scroll when clicking on internal links
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        const sectionId = this.getAttribute('href').substring(1);
+                        const targetSection = document.getElementById(sectionId);
+                        if (targetSection) {
+                            e.preventDefault(); // Prevent default jump
+                            // Calculate offset for fixed header
+                            const headerHeight = document.querySelector('.site-header').offsetHeight;
+                            const elementPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
+                            const offsetPosition = elementPosition - headerHeight;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: "smooth"
+                            });
+
+                            // Close mobile menu after clicking a link (only if menuToggle logic is active)
+                            if (navBar.classList.contains('active')) {
+                                navBar.classList.remove('active');
+                            }
+                        }
+                    });
+                });
+
+
+                // --- Intersection Observer for Active Link & "Snap to Left" Effect ---
+                const observerOptions = {
+                    root: null, // viewport
+                    rootMargin: '-50% 0px -50% 0px', // When the section is roughly in the middle of the viewport
+                    threshold: 0 // Observe as soon as any part of the section is visible
+                };
+
+                const sectionObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const navLink = document.querySelector(`a[data-section-id="${entry.target.id}"]`);
+                        if (navLink) {
+                            if (entry.isIntersecting) {
+                                // Add active class
+                                navLinks.forEach(link => link.classList.remove('active-link'));
+                                navLink.classList.add('active-link');
+
+                                // Scroll the navigation bar to make the active link visible at the start
+                                const activeLi = navLink.closest('li');
+                                if (activeLi && navBar) { // Use navBar as the scrolling element
+                                    activeLi.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                                }
+                            }
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe each section
+                sections.forEach(section => {
+                    sectionObserver.observe(section);
+                });
+
             })
             .catch(error => {
                 console.error('One or more HTML fragments failed to load:', error);
             });
     });
 </script>
+
+
 </html>
