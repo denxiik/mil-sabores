@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mil Sabores</title>
+    <link rel="icon" href="../../img/milSabores_logo.webp">
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="../../script/script.js"></script>
+    <link rel="alternate" hreflang="en" href="https://x/en/" />
+    <link rel="alternate" hreflang="es" href="https://x/es/" />
+</head>
+<header id="header-placeholder"></header>
+<body>
+    <section class="home">
+        <h1>Welcome to Mil Sabores Ice Cream Shop!</h1>
+        <p>We're crafting the most exquisite flavors and sweetest experiences just for you. Soon, you'll be able to enjoy an unparalleled variety of artisanal ice creams.</p>
+        <p class="slogan">"Where every scoop is a flavor adventure."</p>
+        <p class="coming-soon">Stay tuned! Our full website will be revealed soon.</p>
+    </section>
+</body>
+<script>
+    // Load with page
+    document.addEventListener('DOMContentLoaded', function () {
+        // Load all HTML fragments first
+        const headerPromise = loadHTML('../../en/header/index.html', 'header-placeholder'); // Note the 'en' path
+        Promise.all([headerPromise])
+            .then(() => {
+                const menuToggle = document.querySelector('.menu-toggle');
+                const navBar = document.querySelector('.nav-bar');
+                const dropdowns = document.querySelectorAll('.nav-bar .dropdown');
+                if (menuToggle && navBar) {
+                    menuToggle.addEventListener('click', function () {
+                        navBar.classList.toggle('active');
+                        // Close all dropdowns when the main menu is toggled
+                        dropdowns.forEach(dropdown => {
+                            dropdown.classList.remove('active');
+                        });
+                    });
+                } else {
+                    console.warn("Menu toggle or nav bar not found. Check your HTML structure.");
+                }
+            })
+            .catch(error => {
+                console.error('One or more HTML fragments failed to load:', error);
+            });
+    });
+</script>
+</html>

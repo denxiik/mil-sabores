@@ -1,0 +1,64 @@
+@import url('styles.css');
+
+/* Estilos temporales para la sección home */
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Para que ocupe toda la altura de la ventana */
+            background-color: #fce4ec; /* Un color de fondo suave, como de helado */
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .home h1 {
+            font-family: 'Georgia', serif; /* Una fuente elegante */
+            font-size: 3.5em;
+            color: #d81b60; /* Un rosa vibrante */
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .home p {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5em;
+            color: #4a148c; /* Un morado oscuro */
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        .home .slogan {
+            font-style: italic;
+            font-weight: bold;
+            color: #880e4f; /* Un tono más oscuro de rosa */
+        }
+
+        .home .coming-soon {
+            margin-top: 30px;
+            font-size: 1.2em;
+            color: #ad1457;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .home h1 {
+                font-size: 2.5em;
+            }
+
+            .home p {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .home h1 {
+                font-size: 2em;
+            }
+
+            .home p {
+                font-size: 1em;
+            }
+        }

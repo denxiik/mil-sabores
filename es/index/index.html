@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mil Sabores</title>
+    <link rel="icon" href="../../img/milSabores_logo.webp">
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="../../script/script.js"></script>
+    <link rel="alternate" hreflang="en" href="https://x/en/" />
+    <link rel="alternate" hreflang="es" href="https://x/es/" />
+</head>
+<header id="header-placeholder"></header>
+<body>
+    <section class="home">
+        <h1>¡Bienvenido a Heladería Mil Sabores!</h1>
+        <p>Estamos preparando los sabores más exquisitos y las experiencias más dulces para ti. Muy pronto podrás disfrutar de una variedad inigualable de helados artesanales.</p>
+        <p class="slogan">"Donde cada cucharada es una aventura de sabor."</p>
+        <p class="coming-soon">¡Mantente atento! Próximamente revelaremos nuestra página completa.</p>
+    </section>
+</body>
+<script>
+    // Load with page
+    document.addEventListener('DOMContentLoaded', function () {
+        // Load all HTML fragments first
+        const headerPromise = loadHTML('../../es/header/index.html', 'header-placeholder');
+        Promise.all([headerPromise])
+            .then(() => {
+                const menuToggle = document.querySelector('.menu-toggle');
+                const navBar = document.querySelector('.nav-bar');
+                const dropdowns = document.querySelectorAll('.nav-bar .dropdown');
+                if (menuToggle && navBar) {
+                    menuToggle.addEventListener('click', function () {
+                        navBar.classList.toggle('active');
+                        // Close all dropdowns when the main menu is toggled
+                        dropdowns.forEach(dropdown => {
+                            dropdown.classList.remove('active');
+                        });
+                    });
+                } else {
+                    console.warn("Menu toggle o nav bar no encontrados. Revisa tu estructura HTML.");
+                }
+            })
+            .catch(error => {
+                console.error('One or more HTML fragments failed to load:', error);
+            });
+    });
+</script>
+</html>
