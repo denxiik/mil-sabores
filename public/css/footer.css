@@ -1,0 +1,172 @@
+/* -------------------------
+    FOOTER STYLES
+------------------------- */
+.site-footer {
+    background-color: var(--pink); /* Using your primary color */
+    color: #fff;
+    padding: 3rem 2rem;
+    font-size: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.high-contrast .site-footer,
+body.white-text-mode .site-footer {
+    background-color: #000 !important;
+    border-top: 1px solid #BDF24B !important;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem; /* Space between sections */
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px; /* Minimum width for each section before wrapping */
+    padding: 1rem;
+}
+
+.footer-section h3 {
+    color: var(--oranje-aso); /* Highlight headings with your accent color */
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+body.high-contrast .footer-section h3,
+body.white-text-mode .footer-section h3 {
+    color: #BDF24B !important;
+}
+
+.footer-section p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+body.high-contrast .footer-section a,
+body.white-text-mode .footer-section a {
+    color: #FFF !important;
+}
+
+.footer-section a:hover {
+    color: var(--oranje-aso); /* Hover effect with your accent color */
+}
+
+body.high-contrast .footer-section a:hover,
+body.white-text-mode .footer-section a:hover {
+    color: #BDF24B !important;
+}
+
+/* Contact Info specific styles */
+.contact-info p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.contact-info i {
+    margin-right: 0.8rem;
+    color: var(--oranje-aso); /* Icons match headings */
+    font-size: 1.1rem;
+}
+
+body.high-contrast .contact-info i,
+body.white-text-mode .contact-info i {
+    color: #BDF24B !important;
+}
+
+/* Social Links specific styles */
+.social-links a {
+    display: inline-block;
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--oranje-aso);
+}
+
+body.high-contrast .social-links a,
+body.white-text-mode .social-links a {
+    color: #FFF !important;
+}
+
+body.high-contrast .social-links a:hover,
+body.white-text-mode .social-links a:hover {
+    color: #BDF24B !important;
+}
+
+.developer-link {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.developer-link a {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* Footer Bottom styles */
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+body.high-contrast .footer-bottom,
+body.white-text-mode .footer-bottom {
+    border-top: 1px solid #BDF24B !important;
+    color: #FFF !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        min-width: unset; /* Allow sections to take full width */
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .footer-section ul,
+    .contact-info {
+        padding-left: 0;
+    }
+
+    .contact-info p {
+        justify-content: center; /* Center contact info items */
+    }
+
+    .social-links {
+        margin-top: 1rem;
+    }
+}

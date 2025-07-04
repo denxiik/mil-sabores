@@ -1,0 +1,911 @@
+/* Import basic styles or variables if you have them in styles.css */
+@import url('styles.css');
+
+/* --- GENERAL BODY & CONTAINER STYLES (adjust as needed based on styles.css) --- */
+body {
+    font-family: 'Montserrat', sans-serif; /* Example, adjust as per your styles.css */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    line-height: 1.6;
+    color: #333; /* Default text color */
+}
+
+/* Ensure all elements box-sizing is border-box */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Reusable paragraph styles */
+.paragraph-normal {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Headings colors and margins */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Example, adjust as per your styles.css */
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: var(--primary-dark-color); /* Example from styles.css or define here */
+}
+
+h1 { font-size: 3.5rem; } /* 56px */
+h2 { font-size: 2.75rem; } /* 44px */
+h3 { font-size: 2.125rem; } /* 34px */
+h4 { font-size: 1.75rem; } /* 28px */
+h5 { font-size: 1.25rem; } /* 20px */
+h6 { font-size: 1rem; } /* 16px */
+
+
+/* --- HOME SECTION STYLES --- */
+.home {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* This URL is a placeholder. Replace with your actual background image. */
+    background: linear-gradient(rgba(252, 228, 236, 0.8), rgba(252, 228, 236, 0.8)), url('../../img/home-background.webp') no-repeat center center/cover;
+    text-align: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    flex-direction: column;
+    color: #4a148c; /* Purple */
+}
+
+.home-content {
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent white background */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.home h1 {
+    color: #d81b60; /* Deep Pink */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+    font-weight: 700;
+}
+
+.home h2.slogan {
+    font-size: 2.625rem; /* 42px */
+    color: #880e4f; /* Darker Pink */
+    font-style: italic;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.home p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #4a148c; /* Purple */
+}
+
+.home .cta-button {
+    background-color: #d81b60; /* Deep Pink */
+    color: var(--white); /* Assuming --white is defined in styles.css or similar */
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.home .cta-button:hover {
+    background-color: #ad1457; /* Slightly darker pink on hover */
+    transform: translateY(-3px);
+}
+
+/* --- ITEM IMAGE CONTAINER STYLES (for all items with individual photos) --- */
+.item-image-container {
+    width: 100%; /* Occupy full width of its parent (.cocktail-item, .granizado-item, etc.) */
+    padding-bottom: 75%; /* 4:3 Aspect Ratio (height is 75% of width for general items) */
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px; /* Slightly less than item border-radius for visual hierarchy */
+    margin-bottom: 15px; /* Space between image and text */
+    background-color: #f0f0f0; /* Placeholder background */
+}
+
+.item-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container, cropping as needed */
+    border-radius: 8px; /* Match container border-radius */
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+/* Optional: Slight zoom on hover for images */
+.cocktail-item:hover .item-image-container img,
+.granizado-item:hover .item-image-container img,
+.horchata-item:hover .item-image-container img,
+.smoothie-item:hover .item-image-container img,
+.dessert-item:hover .item-image-container img,
+.breakfast-item:hover .item-image-container img {
+    transform: scale(1.05);
+}
+
+
+/* --- COCKTAILS SECTION STYLES --- */
+.cocktails {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff3e0; /* Light Orange/Peach */
+}
+
+.cocktails h2 {
+    color: #c2185b; /* Dark Pink */
+    margin-bottom: 40px;
+}
+
+.cocktails-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cocktail-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: left;
+    transition: transform 0.2s ease-in-out;
+    display: flex; /* Added flexbox to allow image at top and content below */
+    flex-direction: column; /* Stack children vertically */
+    align-items: flex-start; /* Align text to the left */
+}
+
+.cocktail-item:hover {
+    transform: translateY(-5px);
+}
+
+.cocktail-item h3 {
+    color: #880e4f; /* Darker Pink */
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.cocktail-item p {
+    color: #4a148c; /* Purple */
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.cocktail-item .price { /* This rule might be redundant if using .description-price below */
+    font-weight: 700;
+    color: #d81b60; /* Deep Pink */
+    margin-top: 15px;
+    font-size: 1.25rem;
+}
+
+.cocktail-description {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline; /* Align text baselines */
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%; /* Ensure it spans full width in flex container */
+}
+
+.cocktail-description .description-text {
+    flex-grow: 1; /* Allows text to take up remaining space */
+    text-align: left;
+    margin-right: 10px; /* Space before price */
+    color: #4a148c; /* Purple */
+    font-weight: 400;
+}
+
+.cocktail-description .description-price {
+    white-space: nowrap; /* Prevents price from wrapping */
+    color: #d81b60; /* Deep Pink */
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+/* --- GRANIZADOS SECTION STYLES --- */
+.granizados {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f7f7f7; /* Light Gray */
+    color: #333;
+}
+
+.granizados h2 {
+    margin-bottom: 40px;
+    color: #c2185b; /* Dark Pink */
+}
+
+.granizados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.granizado-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: left;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes content and price to ends */
+    align-items: flex-start; /* Align content to the left */
+}
+
+.granizado-item:hover {
+    transform: translateY(-5px);
+}
+
+.granizado-item h3 {
+    font-size: 1.875rem; /* 30px */
+    color: #880e4f; /* Darker Pink */
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.granizado-item .paragraph-normal {
+    font-size: 1.125rem; /* 18px */
+    color: #4a148c; /* Purple */
+    margin-bottom: 15px;
+    flex-grow: 1; /* Allows paragraph to take up available space */
+}
+
+.granizado-item .description-price {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 700;
+    color: #d81b60; /* Deep Pink */
+    text-align: right;
+    display: block; /* Ensures it takes full width for text-align to work */
+    width: 100%; /* Ensure price spans full width */
+}
+
+/* --- HORCHATA SECTION STYLES --- */
+.horchata {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fcf8e3; /* Light Cream/Yellow */
+    color: #6d4c41; /* Brown */
+}
+
+.horchata h2 {
+    margin-bottom: 40px;
+    color: #8d6e63; /* Medium Brown */
+}
+
+.horchata-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.horchata-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: left;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.horchata-item:hover {
+    transform: translateY(-5px);
+}
+
+.horchata-item h3 {
+    font-size: 1.875rem; /* 30px */
+    color: #a1887f; /* Light Brown */
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.horchata-item .paragraph-normal {
+    font-size: 1.125rem; /* 18px */
+    color: #4a148c; /* Purple */
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.horchata-item .description-price {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 700;
+    color: #d81b60; /* Deep Pink */
+    text-align: right;
+    display: block;
+    width: 100%;
+}
+
+/* --- SMOOTHIES SECTION STYLES --- */
+.smoothies {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #e6ffe6; /* Light Green */
+    color: #2e7d32; /* Dark Green */
+}
+
+.smoothies h2 {
+    margin-bottom: 40px;
+    color: #388e3c; /* Medium Green */
+}
+
+.smoothies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.smoothie-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: left;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.smoothie-item:hover {
+    transform: translateY(-5px);
+}
+
+.smoothie-item h3 {
+    font-size: 1.875rem; /* 30px */
+    color: #43a047; /* Slightly Lighter Green */
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.smoothie-item .paragraph-normal {
+    font-size: 1.125rem; /* 18px */
+    color: #5a2c91; /* Dark Purple, slightly different from main purple for contrast */
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.smoothie-item .description-price {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 700;
+    color: #d81b60; /* Deep Pink */
+    text-align: right;
+    display: block;
+    width: 100%;
+}
+
+/* --- DESSERTS (Gofres y Otros Postres Helados) SECTION STYLES --- */
+.desserts {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fbe9e7; /* Light Red/Orange */
+    color: #bf360c; /* Dark Orange */
+}
+
+.desserts h2 {
+    margin-bottom: 40px;
+    color: #ff5722; /* Vibrant Orange */
+}
+
+.desserts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dessert-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: left;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.dessert-item:hover {
+    transform: translateY(-5px);
+}
+
+.dessert-item h3 {
+    font-size: 1.875rem; /* 30px */
+    color: #d84315; /* Orange */
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.dessert-item .paragraph-normal {
+    font-size: 1.125rem; /* 18px */
+    color: #4a148c; /* Purple */
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.dessert-item .description-price {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 700;
+    color: #d81b60; /* Deep Pink */
+    text-align: right;
+    display: block;
+    width: 100%;
+}
+
+
+/* --- ICE CREAM SECTION STYLES --- */
+.ice-creams {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fce4ec; /* Light Pink */
+    color: #880e4f; /* Darker Pink */
+}
+
+.ice-creams h2 {
+    margin-bottom: 40px;
+    color: #c2185b; /* Dark Pink */
+}
+
+.ice-cream-prices {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center items horizontally */
+    gap: 20px; /* Space between items */
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    max-width: 800px; /* Max width for the price grid */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ice-cream-prices .price-item {
+    display: flex;
+    flex-direction: column; /* Stack image, then name, then price */
+    align-items: center; /* Center content horizontally within the item */
+    padding: 10px 20px;
+    border: 1px solid #ff80ab; /* Light Pink border */
+    border-radius: 8px;
+    background-color: #ffebee; /* Very Light Pink background */
+    min-width: 150px; /* Minimum width for each price item */
+    flex-grow: 1; /* Allow items to grow to fill space */
+    flex-basis: calc(50% - 20px); /* Approx 2 items per row, accounting for gap */
+    max-width: calc(50% - 20px); /* Ensure max 2 per row on larger screens */
+    text-align: center;
+}
+
+/* Specific styling for images within ice cream price items */
+.ice-cream-prices .price-item .item-image-container {
+    width: 100px; /* Smaller fixed width for these images */
+    height: 100px; /* Make it square */
+    padding-bottom: 0; /* Override general padding-bottom for aspect ratio */
+    margin-bottom: 10px; /* Space between image and text */
+    border-radius: 50%; /* Make images circular */
+    overflow: hidden; /* Ensure image stays within bounds */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for images */
+}
+
+.ice-cream-prices .price-item .item-image-container img {
+    border-radius: 50%; /* Make the image itself circular if the container is */
+    object-fit: cover; /* Ensures image covers the circular area */
+}
+
+.ice-cream-prices .item-name {
+    font-weight: 600;
+    color: #ad1457; /* Medium Pink */
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.ice-cream-prices .item-price {
+    font-weight: 700;
+    color: #d81b60; /* Deep Pink */
+    font-size: 1.4rem;
+}
+
+.ice-cream-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.flavors-column,
+.syrups-column {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+}
+
+.flavors-column h3,
+.syrups-column h3 {
+    color: #880e4f; /* Darker Pink */
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.flavors-column ul,
+.syrups-column ul {
+    list-style: none;
+    padding: 0;
+    columns: 2; /* Two columns for flavors */
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    column-gap: 20px;
+}
+
+.syrups-column ul {
+    columns: 1; /* Single column for syrups */
+}
+
+.flavors-column li,
+.syrups-column li {
+    color: #4a148c; /* Purple */
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+/* --- BREAKFASTS SECTION STYLES --- */
+.breakfasts {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #e0f2f7; /* Light Blue */
+    color: #1a237e; /* Dark Blue */
+}
+
+.breakfasts h2 {
+    color: #0d47a1; /* Darker Blue */
+    margin-bottom: 40px;
+}
+
+.breakfasts .breakfast-time {
+    color: #ef6c00; /* Orange for emphasis */
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    display: block; /* Ensures it takes full width and new line */
+}
+
+.breakfasts-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.breakfast-category {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: left;
+}
+
+.breakfast-category h3 {
+    color: #1565c0; /* Medium Blue */
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.breakfast-category h4 {
+    color: #283593; /* Slightly darker blue for sub-categories */
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.breakfast-item {
+    display: flex;
+    flex-direction: column; /* Stack image, then name, ingredients, price */
+    align-items: flex-start; /* Align content to the left */
+    margin-bottom: 20px; /* More space between items */
+    padding-bottom: 15px;
+    border-bottom: 1px dotted #bbdefb; /* Light blue dotted separator */
+}
+
+.breakfast-item:last-child {
+    border-bottom: none; /* No border for the last item in a category */
+}
+
+.breakfast-item .item-name {
+    color: #4a148c; /* Purple */
+    font-weight: 600;
+    margin-right: 15px; /* Space before ingredients */
+}
+
+.breakfast-item .item-ingredients {
+    color: #6a1b9a; /* Lighter Purple */
+    font-weight: 400;
+    flex-grow: 1; /* Allow ingredients to take available space */
+    margin-bottom: 10px; /* Space between ingredients and price */
+}
+
+.breakfast-item .item-price {
+    white-space: nowrap; /* Prevents price from wrapping */
+    color: #d81b60; /* Deep Pink */
+    font-weight: 700;
+    font-size: 1.125rem; /* 18px */
+    align-self: flex-end; /* Align price to the right/end */
+}
+
+
+/* --- MEDIA QUERIES FOR RESPONSIVENESS --- */
+
+/* For screens smaller than 1080px (e.g., large tablets, smaller desktops) */
+@media (max-width: 1080px) {
+    .home h1 {
+        font-size: 2.8rem;
+    }
+
+    .home h2.slogan {
+        font-size: 1.8rem;
+    }
+
+    .home p {
+        font-size: 1rem;
+    }
+
+    .home .cta-button {
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+
+    /* Adjust general item heading and price sizes */
+    .cocktail-item h3,
+    .granizado-item h3,
+    .horchata-item h3,
+    .smoothie-item h3,
+    .dessert-item h3 {
+        font-size: 1.5rem;
+    }
+
+    .cocktail-description .description-price,
+    .granizado-item .description-price,
+    .horchata-item .description-price,
+    .smoothie-item .description-price,
+    .dessert-item .description-price {
+        font-size: 1.1rem;
+    }
+
+    /* Ice cream section adjustments */
+    .ice-cream-prices .item-name {
+        font-size: 1rem;
+    }
+
+    .ice-cream-prices .item-price {
+        font-size: 1.2rem;
+    }
+
+    .flavors-column h3,
+    .syrups-column h3 {
+        font-size: 1.4rem;
+    }
+
+    .flavors-column li,
+    .syrups-column li {
+        font-size: 1rem;
+    }
+
+    /* Breakfast section adjustments */
+    .breakfasts h2 {
+        font-size: 2.5rem;
+    }
+
+    .breakfasts .breakfast-time {
+        font-size: 1.3rem;
+    }
+
+    .breakfast-category h3 {
+        font-size: 1.8rem;
+    }
+
+    .breakfast-category h4 {
+        font-size: 1.5rem;
+    }
+
+    .breakfast-item .item-name,
+    .breakfast-item .item-ingredients,
+    .breakfast-item .item-price {
+        font-size: 1rem;
+    }
+}
+
+/* For screens smaller than 768px (e.g., tablets in portrait mode, large phones) */
+@media (max-width: 768px) {
+    .home-content {
+        padding: 30px 20px;
+        margin: 0 15px; /* Add some side margin */
+    }
+
+    .home h1 {
+        font-size: 2.2rem;
+    }
+
+    .home h2.slogan {
+        font-size: 1.5rem;
+    }
+
+    .home p {
+        font-size: 0.95rem;
+    }
+
+    .home .cta-button {
+        font-size: 0.85rem;
+        padding: 10px 20px;
+    }
+
+    /* Grid columns become single column */
+    .cocktails-grid,
+    .granizados-grid,
+    .horchata-grid,
+    .smoothies-grid,
+    .desserts-grid,
+    .ice-cream-details-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    /* Adjust padding for sections */
+    .granizados,
+    .horchata,
+    .smoothies,
+    .desserts,
+    .ice-creams {
+        padding: 40px 15px;
+    }
+
+    /* Adjust padding for individual items */
+    .granizado-item,
+    .horchata-item,
+    .smoothie-item,
+    .dessert-item,
+    .cocktail-item {
+        padding: 20px;
+    }
+
+    /* Adjust item heading and paragraph sizes */
+    .granizado-item h3,
+    .horchata-item h3,
+    .smoothie-item h3,
+    .dessert-item h3,
+    .cocktail-item h3 {
+        font-size: 1.4rem;
+    }
+
+    .granizado-item .paragraph-normal,
+    .horchata-item .paragraph-normal,
+    .smoothie-item .paragraph-normal,
+    .dessert-item .paragraph-normal,
+    .cocktail-item p {
+        font-size: 0.9rem;
+    }
+
+    .granizado-item .description-price,
+    .horchata-item .description-price,
+    .smoothie-item .description-price,
+    .dessert-item .description-price,
+    .cocktail-description .description-price {
+        font-size: 1.1rem;
+    }
+
+    /* Ice cream price items for smaller screens */
+    .ice-cream-prices .price-item {
+        flex-basis: calc(100% - 20px); /* Single item per row */
+        max-width: 100%; /* Ensure max width is 100% */
+    }
+
+    .flavors-column ul {
+        columns: 1; /* Flavors list also becomes single column */
+    }
+
+    /* Breakfast section adjustments */
+    .breakfasts h2 {
+        font-size: 2rem;
+    }
+
+    .breakfasts .breakfast-time {
+        font-size: 1.2rem;
+    }
+
+    .breakfasts-content {
+        grid-template-columns: 1fr; /* Single column for categories */
+    }
+
+    .breakfast-category h3 {
+        font-size: 1.6rem;
+    }
+
+    .breakfast-category h4 {
+        font-size: 1.3rem;
+    }
+}
+
+/* For screens smaller than 480px (e.g., most mobile phones) */
+@media (max-width: 480px) {
+    .home h1 {
+        font-size: 1.8rem;
+    }
+
+    .home h2.slogan {
+        font-size: 1.3rem;
+    }
+
+    .home p {
+        font-size: 0.9rem;
+    }
+
+    .home .cta-button {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+    }
+
+    /* Further adjust breakfast heading and item font sizes */
+    .breakfasts h2 {
+        font-size: 1.8rem;
+    }
+
+    .breakfasts .breakfast-time {
+        font-size: 1rem;
+    }
+
+    .breakfast-category h3 {
+        font-size: 1.4rem;
+    }
+
+    .breakfast-category h4 {
+        font-size: 1.1rem;
+    }
+
+    .breakfast-item .item-name,
+    .breakfast-item .item-ingredients,
+    .breakfast-item .item-price {
+        font-size: 0.9rem;
+    }
+
+    /* Ensure ice cream price items stack vertically */
+    .ice-cream-prices .price-item {
+        flex-basis: 100%;
+    }
+}
